@@ -1,0 +1,205 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #333;
+}
+
+.box{
+	width: 1000px;
+	height: 280px;
+	margin: 50px auto;
+}
+
+.box .link{
+	width: 205px;
+	height: 280px;
+	margin: 0 20px;
+	float: left;
+}
+/*span是一个内敛元素，得给它一个display不然不会具有属性*/
+/*Transition
+定义和用法
+transition 属性是一个简写属性，用于设置四个过渡属性：
+transition-property
+transition-duration
+transition-timing-function
+transition-delay
+语法
+transition: property duration timing-function delay;
+值和描述
+transition-property	规定设置过渡效果的 CSS 属性的名称。all代表全部
+transition-duration	规定完成过渡效果需要多少秒或毫秒。
+transition-timing-function	规定速度效果的速度曲线。
+transition-delay	定义过渡效果何时开始（延时执行时间）。
+
+浏览器支持
+Internet Explorer 10、Firefox、Opera 和 Chrome 支持 transition 属性。
+Safari 支持替代的 -webkit-transition 属性。
+注释：Internet Explorer 9 以及更早版本的浏览器不支持 transition 属性。
+ */
+.link .icon {
+	display: inline-block;
+	width: 100%;
+	height: 90px;
+	transition: 0.2s linear;  /*不要写在下面的tansform里面，而是要写在这里的默认效果里*/
+	-webkit-transition: 0.2s linear;
+}
+
+.link-miss .icon{
+	background: url('../images/mission.png') no-repeat center center;
+}
+
+.link-play .icon{
+	background: url('../images/play.png') no-repeat center center;
+}
+
+.link-touch .icon{
+	background: url('../images/touch.png') no-repeat center center;
+}
+
+/* Transform
+定义和用法
+transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。
+scale(x,y)	定义 2D 缩放转换。
+scale3d(x,y,z)	定义 3D 缩放转换。
+scaleX(x)	通过设置 X 轴的值来定义缩放转换。
+scaleY(y)	通过设置 Y 轴的值来定义缩放转换。
+scaleZ(z)	通过设置 Z 轴的值来定义 3D 缩放转换。
+rotate(angle)	定义 2D 旋转，在参数中规定角度。
+rotate3d(x,y,z,angle)	定义 3D 旋转。
+rotateX(angle)	定义沿着 X 轴的 3D 旋转。
+rotateY(angle)	定义沿着 Y 轴的 3D 旋转。
+rotateZ(angle)	定义沿着 Z 轴的 3D 旋转。
+
+浏览器支持
+Internet Explorer 10、Firefox、Opera 支持 transform 属性。
+Internet Explorer 9 支持替代的 -ms-transform 属性（仅适用于 2D 转换）。
+Safari 和 Chrome 支持替代的 -webkit-transform 属性（3D 和 2D 转换）。
+Opera 只支持 2D 转换。
+*/
+/*.link:hover .icon 这种是到盒子，下面的是到图片动起来*/
+
+.link .icon:hover{
+	transform: rotate(360deg) scale(1.2);
+	-webkit-transform: rotate(360deg) scale(1.2);
+	-moz-transform: rotate(360deg) scale(1.2);
+	-ms-transform: rotate(360deg) scale(1.2);
+}
+
+/* box-sizing
+定义和用法
+box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。
+例如，假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。
+这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。
+语法
+box-sizing: content-box|border-box|inherit;
+值	描述
+content-box
+这是由 CSS2.1 规定的宽度高度行为。
+宽度和高度分别应用到元素的内容框。
+在宽度和高度之外绘制元素的内边距和边框。
+border-box
+为元素设定的宽度和高度决定了元素的边框盒。
+就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
+inherit	规定应从父元素继承 box-sizing 属性的值。
+
+
+浏览器支持
+Internet Explorer、Opera 以及 Chrome 支持 box-sizing 属性。
+Firefox 支持替代的 -moz-box-sizing 属性。
+ */
+.button{
+	display: block;
+	width: 180px;
+	height: 50px;
+	text-decoration: none;
+	line-height: 50px;
+	color: #2DCB70;
+	font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	border: 2px solid rgba(255,255,255,0.8);
+	padding-left: 20px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: url('../images/allow.png') no-repeat 130px center;
+	position: relative;
+	transition: 0.4s ease;
+	-webkit-transition: 0.4s ease;
+}
+
+.button:hover{
+	border: 2px solid rgba(255,255,255,1);
+	background-position: 140px center;
+}
+
+.button .line {
+	display: block;
+	position: absolute;
+	background: none;
+	transition: 0.4s ease;
+	-webkit-transition: 0.4s ease;
+}
+.button:hover .line{
+	background: #fff;
+}
+
+/*
+top：
+1.高度不变
+2.宽度变（0-盒子宽度）
+3.位置：左-右
+ */
+
+.button .line-top{
+	height: 2px;
+	width: 0px;
+	left: -110%;
+	top: -2px;
+}
+
+.button:hover .line-top{
+	width: 100%;
+	left: -2px;
+}
+
+.button .line-bottom{
+	height: 2px;
+	width: 0px;
+	right: -110%;
+	bottom: -2px;
+}
+
+.button:hover .line-bottom{
+	width: 100%;
+	right: -2px;
+}
+
+.button .line-left{
+	height: 0;
+	width: 2px;
+	bottom: -110%;
+	left: -2px;
+}
+
+.button:hover .line-left{
+	height: 100%;
+	bottom: -2px;
+}
+
+.button .line-right{
+	height: 0;
+	width: 2px;
+	top: -110%;
+	right: -2px;
+}
+
+.button:hover .line-right{
+	height: 100%;
+	top: -2px;
+}
