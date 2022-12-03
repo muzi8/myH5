@@ -12,3 +12,5 @@ PS: transition是过渡效果，使得要展现的效果不会那么生硬的展
 
 ## 展示效果
 ![](https://github.com/muzi8/myH5/raw/master/demo_GhostBtn/demo1.gif)
+
+新增一次提交，验证mac配置
